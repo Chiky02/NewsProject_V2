@@ -64,22 +64,11 @@ console.log(formData);
   // Aquí se debería subir la imagen y la noticia al servidor
   try {
     const currentDateTimeString = new Date();
- ajax2Image(formData);
+    const link=ajax2Image(formData,titulo,cuerpo,currentDateTimeString);
 
 
 
-    let data = {
-      date: currentDateTimeString,
-      body: cuerpo,
-      stateNew: "Solicitado",
-      title: titulo,
-      user: 1,
-      categoryId: 1,
-      photoLink: selectedFile.name
-    }
-    //estados-- solicitado, aprobado, solicitado
-    ajax(data)
-
+   
 
 
     alert("Noticia creada y publicada");
@@ -136,7 +125,7 @@ function ajax(data) {
             }*/
   });
 }
-function ajax2Image(data2) {
+function ajax2Image(data2,titulo,cuerpo,currentDateTimeString) {
 
   alert(data2);
   $.ajax({
@@ -164,7 +153,20 @@ function ajax2Image(data2) {
       }
 
       else {
-        alert(json);
+        //alert(json);
+      
+        let data = {
+          date: currentDateTimeString,
+          body: cuerpo,
+          stateNew: "Solicitado",
+          title: titulo,
+          user: 1,
+          categoryId: 1,
+          photoLink: json
+        }
+        //estados-- solicitado, aprobado, solicitado
+        ajax(data)
+    
       }
     },
     // código a ejecutar si la petición falla;

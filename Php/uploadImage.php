@@ -38,7 +38,7 @@ if(isset($_FILES["fileToUpload"])) {
     } else {
         // Intentar subir el archivo
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "El archivo ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " ha sido subido.";
+            echo htmlspecialchars($target_file) ;
         } else {
             echo "Lo siento, hubo un error al subir tu archivo.";
         }
