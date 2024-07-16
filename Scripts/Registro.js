@@ -43,6 +43,7 @@ formularioRegistro.addEventListener('submit', async (event) => {
     // (se omite por simplicidad)
 });
 
+// considerar generar un archivo js para ajax
 function ajax(data) {
 
     alert(data);

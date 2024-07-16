@@ -4,8 +4,8 @@ include("conexion.php");
 $con=conect();
 
 if($con){
- 
-    $consulta="Select * from  users;";
+    $news = array();
+    $consulta="Select * from  news;";
     
   $result = mysqli_query($con,$consulta);
 
@@ -14,8 +14,7 @@ if($con){
       
       
     
-       echo "<h1>",$row['userName'],"</h1>",
-       "<h1>",$row['email'],"<h1>";// despliega el username de la base de datos
+       $news[]=$row;
     
         
     }
@@ -25,6 +24,11 @@ if($con){
 
         echo null;
     }
+    $con->close();
+    // Devuelve los datos como JSON
+header('Content-Type: application/json');
+echo json_encode($news);
+
     }
 else{
     echo "sin encontrar";

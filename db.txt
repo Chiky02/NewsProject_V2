@@ -1,0 +1,48 @@
+create database news;
+Use news;
+
+CREATE TABLE Sponsor(
+    idSponsor INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    Description Varchar(400) NOT NULL,
+    logoUrl VARCHAR(400) NOT NULL
+);
+CREATE TABLE Users(
+ idUser INT PRIMARY  KEY AUTO_INCREMENT NOT NULL,
+   userName VARCHAR (200) NOT NULL,
+    email varchar(200) NOT NULL UNIQUE,
+    pass VARCHAR(255) NOT NULL,
+    Rol VARCHAR(50) NOT NULL,
+    state VARCHAR(20) NOT NULL,
+    dateRegistration TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Category(
+idCategory INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nameCategory VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT
+);
+CREATE TABLE News (
+    idNews INT NOT NULL PRIMARY KEY  AUTO_INCREMENT,
+    date DATE NOT NULL,
+    body TEXT NOT NULL,
+    stateNew VARCHAR(45) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    userId INT NOT NULL,
+    categoryId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES Users(idUser),
+    FOREIGN KEY (categoryId ) REFERENCES Category(idCategory)
+);
+
+INSERT INTO Category(nameCategory,  description) VALUES 
+('Tecnología', 'Noticias relacionadas con la tecnología y los avances tecnológicos.'),
+('Deportes', 'Noticias sobre deportes y eventos deportivos.'),
+('Política', 'Noticias sobre política y eventos políticos.'),
+('Salud', 'Noticias relacionadas con la salud y el bienestar.');
+
+
+
+INSERT INTO Users (userName, email, pass, Rol, state)
+VALUES ('admin', 'admin@example.com', 'contraseñaSegura123', 'Administrador', 'Activo');
+INSERT INTO News (date, body, stateNew, title, userId, categoryId, photoLink)
+VALUES ('2024-07-13', 'Contenido de la noticia...', 'publicado', 'Título de la noticia', 1, 2, 'https://ejemplo.com/imagen.jpg');
+
