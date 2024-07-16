@@ -15,7 +15,7 @@ if (!empty($data['date']) && !empty($data['body']) && !empty($data['stateNew']) 
 
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO News (date, body, stateNew, title, userId, categoryId, photoLink) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO news (date, body, stateNew, title, userId, categoryId, photoLink) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $con->prepare($sql);
 
     // Vincular parámetros y ejecutar la consulta
