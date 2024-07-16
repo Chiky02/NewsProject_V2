@@ -38,11 +38,11 @@ onload = function ajax() {
 
 
                 data.forEach((element, index) => {
-                    let im = "https://e0.pxfuel.com/wallpapers/976/989/desktop-wallpaper-1280-x-720.jpg";
+                  
                     const noticiaHTML = `
                     <div class="noticia">
                     <h2>${element.title}</h2>
-                        <img src="${im}" alt="${element.titulo}">
+                        <img src="${element.photoLink}" alt="${element.titulo}">
                      
                         <p>${element.body}</p>
                         <h4>${element.date}</h4>

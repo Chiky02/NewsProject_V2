@@ -76,6 +76,7 @@ function ajax(data) {
 
             else {
               alert(json);
+              window.location.href = "/Login.html";
             }
         },
         // código a ejecutar si la petición falla;

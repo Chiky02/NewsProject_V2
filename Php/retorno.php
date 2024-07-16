@@ -12,11 +12,7 @@ if($con){
   if($result){
     while ($row = $result->fetch_assoc()) {
       
-      
-    
        $news[]=$row;
-    
-        
     }
 
 }
@@ -33,8 +29,5 @@ echo json_encode($news);
 else{
     echo "sin encontrar";
 }
-
 // es l arespuesta que da el servidor
-
-
 ?>

@@ -1,5 +1,5 @@
 <?php
-$target_dir =  "../uploads/"; // Directorio donde se guardará el archivo
+$target_dir =  $_SERVER['DOCUMENT_ROOT'] ."/uploads/"; // Directorio donde se guardará el archivo
 
 // Verificar si se subió algún archivo
 if(isset($_FILES["fileToUpload"])) {
@@ -38,7 +38,7 @@ if(isset($_FILES["fileToUpload"])) {
     } else {
         // Intentar subir el archivo
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo htmlspecialchars($target_file) ;
+            echo "/uploads/".htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
         } else {
             echo "Lo siento, hubo un error al subir tu archivo.";
         }
