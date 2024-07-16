@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Noticia</title>
+    <link rel="stylesheet" href="Style/create.css">
+</head>
+<body>
+    <a href="Login.html">Agregar Noticia</a>
+    <div class="container">
+        <h1>Crear Noticia</h1>
+        <form id="formularioNoticia">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título de la noticia" required>
+
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" max="1000" accept="image/*">
+            <img id="imagenNoticia" src="https://cdn-icons-png.flaticon.com/512/4211/4211763.png">
+       
+            <label for="cuerpo">Cuerpo de la Noticia:</label>
+            <textarea id="cuerpo" name="cuerpo" rows="10" placeholder="Ingrese el cuerpo de la noticia" required></textarea>
+
+            <button type="submit">Crear Noticia</button>
+        </form>
+        <button id="Signout">Salir</button>
+    </div>
+  
+
+    <script type="module" src="Scripts/createnew.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+</body>
+</html>

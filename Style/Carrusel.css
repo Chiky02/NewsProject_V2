@@ -1,0 +1,97 @@
+.carrusel{
+  
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    display: flex;
+   
+
+}
+.frontBack :hover{
+    background: rgb(0, 162, 255);
+    flex: 1;
+}
+
+.imagenes{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.img{
+    box-shadow: 0px 4px 10px 0px rgba(215, 207, 207, 0.85);
+  /*
+  *Declaramos una altura de 300px para todas las imagenes
+  */
+    height: 300px;
+    border-radius: 15px ;
+    margin: 5px;
+    object-fit: cover;
+
+}
+
+.texto{
+    overflow: hidden;
+    flex-direction: column;
+    transform: translateY(0px);
+    margin-bottom: 9px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(63, 106, 138, 0.21);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    width: 100%;
+}
+
+
+/*   
+*El texto se colca con tamanio 0 para que no se vea la letra hasta estar sobre ella
+*el padding puede cambiar
+*/
+.texto p{
+    align-items: center;
+    padding: 2px;
+    color:white;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+
+.imagenes:hover .texto{
+    /*  
+    *el transform translate se refier cuanto se va a desplazar 
+        la barra de texto al tener el mouse sobre ella
+    *el height se refiere al alt que tendra el banner, el ancho es automatico
+    */
+    background-color: rgba(63, 106, 138, 0.71);
+    cursor: pointer;
+}
+
+
+
+.puntos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.puntos p{
+    font-size: 100px;
+    font-weight: 500;
+    margin-top: -50px;
+    color: black;
+}
+
+.puntos .bold{
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #5E17EB ;
+}
