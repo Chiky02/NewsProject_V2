@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-
+session_start(); // Iniciar la sesión
 $con=conect();
 
 if($con){
@@ -28,8 +28,6 @@ if($con){
         
           $stmt->close();
           $con->close();
-    
-    
     
     
     }

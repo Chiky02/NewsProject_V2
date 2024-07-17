@@ -59,7 +59,7 @@ function ajax(data) {
         type: 'POST',
 
         // el tipo de información que se espera de respuesta
-        dataType: 'text',
+        dataType: 'json',
         cache: false,
         // código a ejecutar si la petición es satisfactoria;
 
@@ -75,8 +75,14 @@ function ajax(data) {
             }
 
             else {
-              alert(json);
-              window.location.href = "/Login.html";
+              alert(json.message);
+              if(json.message=="Datos guardados exitosamente"){
+                window.location.href = "Login.html";
+              }
+              else{
+                alert(json.message);
+              }
+             
             }
         },
         // código a ejecutar si la petición falla;
