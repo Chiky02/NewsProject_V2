@@ -28,6 +28,7 @@
   
         else {
           alert(json);
+          //window.location.href = "/CreateNew.html";
         }
       },
       // código a ejecutar si la petición falla;
