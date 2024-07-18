@@ -54,7 +54,7 @@ function ajax(data,action) {
 
       else {
         alert(json);
-        if(json=="Contrasensa correcta"){
+        if(json=="Contrasena incorrecta"){
 
           window.location.href =  "CreateNew.html";
         }

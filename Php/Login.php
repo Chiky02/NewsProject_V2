@@ -1,6 +1,15 @@
 <?php
 include("conexion.php");
 session_start(); // Iniciar la sesión
+
+// Verificar si ya hay una sesión activa
+if (isset($_SESSION['user_id'])) {
+    // Si hay una sesión activa, redirigir a la página cratenew.html
+    header('CreateNew.html');
+    exit(); // Asegurarse de que el script termine aquí para evitar ejecución adicional
+}
+
+
 $con=conect();
 
 if($con){
@@ -16,12 +25,13 @@ if($con){
         //stm para verificar si hay correo ue coincida
 
     if ($hashedPassword && password_verify($pass, $hashedPassword)) {
+        //Datos de inicio de sesion
         $_SESSION['user_id'] = $idUser;
         $_SESSION['user_name'] = $userName;
         $_SESSION['user_email'] = $email;
         $_SESSION['user_rol'] = $rol;
         $_SESSION['user_state'] = $state;
-        echo 'Contrasensa correcta';
+        echo 'Contrasena correcta';
     } else {
         echo 'Contrasena incorrecta';
     }
