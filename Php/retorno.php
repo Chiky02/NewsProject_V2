@@ -5,7 +5,7 @@ $con=conect();
 
 if($con){
     $news = array();
-    $consulta="Select * from  news;";
+    $consulta="Select * from  news order by date DESC ;";
     
   $result = mysqli_query($con,$consulta);
 

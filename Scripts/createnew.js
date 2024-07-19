@@ -1,4 +1,26 @@
+import { enviarDatos } from './ajaxConnection.js';
 
+
+window.onload= enviarDatos(
+  'Php/initSession.php', // URL del archivo PHP
+  'POST', // Tipo de petición
+  { }, // Datos a enviar
+  function(response) { // Función de éxito
+      if (response.message === 'no hay inciooo') {
+          
+          // Redirigir después del login
+          window.location.href = response.link;
+
+      } else {
+          alert('redireccion'+response.message);
+         // window.location.href=response.link;
+         alert("nada");
+      }
+  },
+  function(jqXHR, textStatus, errorThrown) { // Función de error
+      console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+  }
+);
 //addDoc,collection 
 const formularioNoticia = document.getElementById('formularioNoticia');
 const out = document.getElementById('Signout');
@@ -77,7 +99,8 @@ console.log(formData);
   }
   // (se omite por simplicidad)
   alert('Noticia creada correctamente.');
-  formularioNoticia.reset(); // Limpiar el formulario
+ // formularioNoticia.reset(); // Limpiar el formulario
+ location.reload(true);
 };
 
 

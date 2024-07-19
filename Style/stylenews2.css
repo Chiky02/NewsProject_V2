@@ -1,12 +1,15 @@
 /* Estilos generales ya definidos en login.html y news.html */
-/*este style es global para todas las paginas*/
 
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
 /* Estilos generales ya definidos */
 .init{
   display: ruby-text;
 
+}h1{
+
+  font-family: "Poppins", light;
+
+  color: #ffffff;
+  font-size: xxx-large;
 }
 
 
@@ -19,16 +22,47 @@
 body {
     margin: 0%;
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle, rgb(46, 196, 38) 0%, rgba(148, 187, 233, 1) 100%);
+    background: radial-gradient(circle, rgb(130, 217, 126) 10%, rgb(196, 209, 224) 100%);
 }
 
-header {
-    background-color: #000f109e;
-    padding: 5px;
-    text-align: center;
-    background: linear-gradien(-50deg,  transparent 40%,#fdfdfdea );
 
+header {
+
+  background-color: #000f109e;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradien(-50deg,  transparent 40%,#fdfdfdea );
+  color: #000000;
+  /*padding: 15px;*/  
+ display: flex;/*esto se cambia de flex a flow*/
  
+  align-items: flex-end;
+  text-align: center;
+
+  /* Ajusta la altura del header según tus necesidades */
+  /*linea de margen*/
+  border-bottom: solid;
+  border-color: #3FA9F5;
+  border-width: inherit;
+  box-shadow: 0 0 10px #3fa9f585;
+  /*con esto le ponemos sombra a la raya*/
+  
+}
+.nav-links{
+  display: flex;
+
+}
+.nav-links.show{
+display: block;
+}
+.nav-links li{
+  list-style: none;
+  padding-left: 20px;
+}
+.nav-links li a{
+
+  text-decoration: none;
+  color: #fbf9f9;
 }
 header::after {
   content: '';
@@ -38,10 +72,10 @@ header::after {
   width: 100%;
   height: 5px;
   background-image: linear-gradient(to right, rgb(118, 224, 178), #0f0, rgb(165, 165, 224)),
-                    linear-gradient(to right, rgb(165, 165, 224), rgb(179, 221, 179), rgb(255, 247, 247)); /* Degradados RGB */
-  background-position: left, right; /* Posición de los degradados */
-  background-size: 50%, 50%; /* Tamaño de cada degradado */
-  animation: borde-rgb 30s linear infinite; /* Animación para el cambio de degradado */
+                    linear-gradient(to right, rgb(165, 165, 224), rgb(179, 221, 179), rgb(255, 247, 247));
+  background-position: left, right; 
+  background-size: 50%, 50%; 
+  animation: borde-rgb 30s linear infinite; 
 }
 
 @keyframes borde-rgb {

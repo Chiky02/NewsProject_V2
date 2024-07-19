@@ -2,9 +2,16 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.html'); // Redirigir al login si no está autenticado
-    exit();
+    echo json_encode(["message" => 'no hay inciooo',"link"=>"login.html"]);
+   
+    
+    die();
+}
+else{
+    echo json_encode(["message" => "Bienvenido, " . $_SESSION['user_name'],"link"=>"createNew.html"]);
+
+
 }
 
-echo "Bienvenido, " . $_SESSION['user_name'];
+
 ?>

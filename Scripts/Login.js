@@ -1,4 +1,4 @@
-import { enviarDatos } from 'Scripts/enviarDatos.js';
+import { enviarDatos } from './ajaxConnection.js';
 const formularioLogin = document.getElementById('formularioLogin');
 
 window.onload= enviarDatos(
@@ -6,12 +6,13 @@ window.onload= enviarDatos(
   'POST', // Tipo de petición
   { }, // Datos a enviar
   function(response) { // Función de éxito
-      if (response === 'success') {
-          alert('Login exitoso');
+      if (response.message === 'no hay inciooo') {
+          alert('..');
           // Redirigir después del login
-          window.location.href = '/pagina_principal.php';
+         // window.location.href = '/pagina_principal.php';
       } else {
-          alert('Correo o contraseña incorrectos');
+          alert('redireccion'+response.message);
+          window.location.href=response.link;
       }
   },
   function(jqXHR, textStatus, errorThrown) { // Función de error
@@ -37,8 +38,36 @@ formularioLogin.addEventListener('submit', (event) => {
 //codigo para verificar datos introducidos
 let data={correo:correo,contrasena:contrasena};
 console.log(data);
-ajax(data,"Login");
+//ajax(data,"Login");
+enviarDatos(
+  'Php/Login.php', // URL del archivo PHP
+  'POST', // Tipo de petición
+  data, // Datos a enviar
+  function(json) { // Función de éxito
+     
 
+    if (json.message.length == 0) {
+      alert("No se ha recibido ninguna respuesta");
+    }
+
+    else {
+      alert(json);
+      if(json.message=="Contrasena correcta"){
+
+        window.location.href = json.url;
+      }
+      else if(json.message=="Contrasena incorrecta"){
+        alert(json.message);
+
+      }
+   
+      
+    }
+  },
+  function(jqXHR, textStatus, errorThrown) { // Función de error
+      console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+  }
+);
 
   }
   // Here you should implement the logic to validate the user credentials against your backend (e.g., database or authentication service)
