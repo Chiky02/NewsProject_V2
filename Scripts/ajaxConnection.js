@@ -1,10 +1,10 @@
   // Import the functions you need from the SDKs you need
-  function enviarDatos(url, tipo, datos, exitoCallback, errorCallback) {
+ export function enviarDatos(url, tipo, datos, exitoCallback, errorCallback) {
     $.ajax({
         url: url,
         type: tipo,
         data: JSON.stringify(datos), // Convertir datos a JSON si es necesario
-        dataType: 'text', // Tipo de datos que se espera recibir
+        dataType: 'json', // Tipo de datos que se espera recibir
         cache: false,
         beforeSend: function () {
             console.log("Cargando... No se desespere");

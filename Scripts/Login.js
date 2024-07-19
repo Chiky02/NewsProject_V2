@@ -1,5 +1,25 @@
-
+import { enviarDatos } from 'Scripts/enviarDatos.js';
 const formularioLogin = document.getElementById('formularioLogin');
+
+window.onload= enviarDatos(
+  'Php/initSession.php', // URL del archivo PHP
+  'POST', // Tipo de petición
+  { }, // Datos a enviar
+  function(response) { // Función de éxito
+      if (response === 'success') {
+          alert('Login exitoso');
+          // Redirigir después del login
+          window.location.href = '/pagina_principal.php';
+      } else {
+          alert('Correo o contraseña incorrectos');
+      }
+  },
+  function(jqXHR, textStatus, errorThrown) { // Función de error
+      console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+  }
+);
+
+
 
 
 
@@ -37,7 +57,7 @@ function ajax(data,action) {
     type: 'POST',
 
     // el tipo de información que se espera de respuesta
-    dataType: 'text',
+    dataType: 'json',
     cache: false,
     // código a ejecutar si la petición es satisfactoria;
 
@@ -48,16 +68,21 @@ function ajax(data,action) {
 
 
 
-      if (json.length == 0) {
+      if (json.message.length == 0) {
         alert("No se ha recibido ninguna respuesta");
       }
 
       else {
         alert(json);
-        if(json=="Contrasena incorrecta"){
+        if(json.message=="Contrasena correcta"){
 
-          window.location.href =  "CreateNew.html";
+          window.location.href = json.url;
         }
+        else if(json.message=="Contrasena incorrecta"){
+          alert(json.message);
+
+        }
+     
         
       }
     },
@@ -65,6 +90,7 @@ function ajax(data,action) {
     error: function (xhr, status) {
       alert("Ha ocurrido un error inesperado");
       alert(status);
+      alert(xhr);
     },
     /*
             // código a ejecutar sin importar si la petición falló o no

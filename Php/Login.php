@@ -2,12 +2,6 @@
 include("conexion.php");
 session_start(); // Iniciar la sesión
 
-// Verificar si ya hay una sesión activa
-if (isset($_SESSION['user_id'])) {
-    // Si hay una sesión activa, redirigir a la página cratenew.html
-    header('CreateNew.html');
-    exit(); // Asegurarse de que el script termine aquí para evitar ejecución adicional
-}
 
 
 $con=conect();
@@ -31,9 +25,9 @@ if($con){
         $_SESSION['user_email'] = $email;
         $_SESSION['user_rol'] = $rol;
         $_SESSION['user_state'] = $state;
-        echo 'Contrasena correcta';
+        echo json_encode(["message" => 'Contrasena correcta',"url"=> "CreateNew.html"]);
     } else {
-        echo 'Contrasena incorrecta';
+        echo json_encode(["message" => 'Contrasena incorrecta']);
     }
         
           $stmt->close();
@@ -44,6 +38,6 @@ if($con){
 
 }
 else{
-    echo "sin encontrar";
+    echo json_encode(["message" => 'Sin encontrar']);
 }
 ?>
