@@ -1,47 +1,36 @@
-/* Estilos generales ya definidos en login.html y news.html */
-/*este style es global para todas las paginas*/
-
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
-/* Estilos generales ya definidos */
-.init{
-  display: ruby-text;
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400&display=swap');
 
-}
-
-
-.whatsapp img{
-  position: fixed;
-  width: 60px;
-  bottom: 10px;
-  right: 10px;
-}
 body {
-    margin: 0%;
+    margin: 0;
     font-family: Arial, sans-serif;
     background: radial-gradient(circle, rgb(46, 196, 38) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 header {
-    background-color: #000f109e;
-    padding: 5px;
-    text-align: center;
-    background: linear-gradien(-50deg,  transparent 40%,#fdfdfdea );
-
- 
+  position: relative;
+  background-color: #000f109e;
+  padding: 5px 10px;
+  background: linear-gradient(291deg, transparent 0.5%, #000000);
 }
+
 header::after {
   content: '';
   position: absolute;
- 
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 5px;
   background-image: linear-gradient(to right, rgb(118, 224, 178), #0f0, rgb(165, 165, 224)),
-                    linear-gradient(to right, rgb(165, 165, 224), rgb(179, 221, 179), rgb(255, 247, 247)); /* Degradados RGB */
-  background-position: left, right; /* Posición de los degradados */
-  background-size: 50%, 50%; /* Tamaño de cada degradado */
-  animation: borde-rgb 30s linear infinite; /* Animación para el cambio de degradado */
+                    linear-gradient(to right, rgb(165, 165, 224), rgb(179, 221, 179), rgb(255, 247, 247));
+  background-position: left, right;
+  background-size: 50%, 50%;
+  animation: borde-rgb 30s linear infinite;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @keyframes borde-rgb {
@@ -55,22 +44,99 @@ header::after {
     background-position: left, right;
   }
 }
-.logo {
+
+header .logo {
     display: inline-block;
     margin-right: 20px;
 }
 
-.logo img {
+header .logo img {
     width: 100px;
     height: auto;
     border-radius: 20px;
 }
 
-h1 {
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    vertical-align: bottom;
+header .menu {
+    display: flex;
+}
+
+header .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-family: "Poppins", light;
+  font-weight: bold;
+}
+header .menu a:hover {
+  color: rgb(15, 66, 207);
+  
+
+ 
+}
+header .menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilos para la barra de navegación superpuesta */
+.superpuesto {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.superpuesto .cerrar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+}
+
+.superpuesto .contenido a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.superpuesto .contenido a:hover {
+    color: #f1f1f1;
+}
+
+/* Estilos para móviles */
+@media screen and (max-width: 768px) {
+    header .menu {
+        display: none;
+    }
+
+    header .menu-icon {
+        display: block;
+    }
+
+    header::after {
+        display: none;
+    }
+}
+
+.whatsapp img {
+    position: fixed;
+    width: 60px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.init {
+    display: ruby-text;
 }
 
 .container {
@@ -104,13 +170,15 @@ h1 {
 
 .noticia p {
     line-height: 1.6;
-    text-align:justify;
+    text-align: justify;
 }
+
 .noticia h4 {
-   
-    text-align:right;
-    align-items: right;
+    text-align: right;
 }
+
+
+
 
 /*********************************/
 footer {

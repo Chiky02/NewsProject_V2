@@ -1,8 +1,9 @@
 
 var continer = document.getElementById("noticias");
+
 onload = function ajax() {
 
-    alert("HERE WE GO AGAIN");
+
     $.ajax({
         // la URL para la petición
         url: 'Php/retorno.php',
@@ -38,7 +39,7 @@ onload = function ajax() {
 
 
                 data.forEach((element, index) => {
-                  
+
                     const noticiaHTML = `
                     <div class="noticia">
                     <h2>${element.title}</h2>
@@ -63,7 +64,7 @@ onload = function ajax() {
                     );*/
 
                 });
-
+               
 
             }
         },

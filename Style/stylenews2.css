@@ -50,6 +50,7 @@ header {
 }
 .nav-links{
   display: flex;
+  align-items: center;
 
 }
 .nav-links.show{
@@ -63,6 +64,10 @@ display: block;
 
   text-decoration: none;
   color: #fbf9f9;
+}
+.nav-links li img{
+
+height: 100px;
 }
 header::after {
   content: '';

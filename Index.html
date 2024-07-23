@@ -1,103 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias</title>
     <link rel="stylesheet" href="Style/stylenews.css">
     <link rel="stylesheet" href="Style/Carrusel.css">
-</head>
+      <!-- Importando poppins -->
 
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap"
+          rel="stylesheet">
+</head>
 <body>
 
     <header>
-        <div class="logo">
-            <img src="Images/logo.png" alt="Logotipo">
+        <div class="header-content">
+            <div class="logo">
+                <img src="Images/Logo.png" alt="Logo">
+            </div>
+            <nav class="menu">
+                <a href="#">Nosotros</a>
+                <a href="#">Servicios</a>
+                <a href="#">Clientes</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <span class="menu-icon" onclick="openNav()">&#9776; </span>
         </div>
-        <h2></h2> 
-         
     </header>
+
+    <div id="Barra" class="superpuesto">
+        <a href="javascript:void(0)" class="cerrar" onclick="closeNav()">&times;</a>
+        <div class="contenido">
+            <a href="#">Nosotros</a>
+            <a href="#">Servicios</a>
+            <a href="#">Clientes</a>
+            <a href="#">Contacto</a>
+        </div>
+    </div>
+
     <div class="carrusel">
-        
         <div class="frontBack">
             <img id="atras" src="Images/atras.svg" alt="atras" loading="lazy">
         </div>
-
         <div class="imagenes">
             <div id="img">
                 <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdx38W42k6ujIXAghZNamkWwcMPEXWZbb8CA&s" alt="imagen 1" loading="lazy">
-               
+            </div>
         </div>
-      
-       
-        
-     
-
-
-
-    </div>
-      <div class="frontBack" id="adelante">
+        <div class="frontBack" id="adelante">
             <img src="Images/adelante.svg" alt="adelante" loading="lazy">
         </div>
-  
-</div>
-<div id="texto" class="texto">
-    <p>Proyecto 01</p>
-   
-</div>
+    </div>
+
+    <div id="texto" class="texto">
+        <p>Proyecto 01</p>
+    </div>
+
     <div class="puntos" id="puntos"></div>
-   
-   
-     
+
     <div class="container">
         <div class="init">
             <h1>Noticias</h1>
             <section class="patrocinadores">
-
                 <div class="patrocinador-actual">
                     <img src="" alt="Patrocinador">
-
                 </div>
             </section>
-
         </div>
 
-
-        <section id="noticias">
-        </section>
+        <section id="noticias"></section>
     </div>
 
     <div class="whatsapp">
         <a href="https://wa.me/+573228017249?text=Hola">
-            <img  src="Images/WhatsApp.png">
+            <img src="Images/WhatsApp.png" alt="WhatsApp">
         </a>
-       
     </div>
 
     <footer>
-        <h3> Contactos Comunicaciones
-        </h3>
+        <h3>Contactos Comunicaciones</h3>
         <div class="redes-sociales">
             <a href="mailto:contactoscomunicaciones2015@gmail.com" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Instagram"></a>
-
-            <a href="https://www.instagram.com/contactos_comunicaciones?igsh=Z2J6Z3V1dnp6ZHI3" target="_blank"><img
-                    src="https://cdn.icon-icons.com/icons2/2699/PNG/512/instagram_logo_icon_168715.png"
-                    alt="Instagram"></a>
-
-            <a href="https://www.facebook.com/contactoscomunicacionesubate?mibextid=ZbWKwL" target="_blank"><img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
-                    alt="Facebook"></a>
-
+                <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email">
+            </a>
+            <a href="https://www.instagram.com/contactos_comunicaciones?igsh=Z2J6Z3V1dnp6ZHI3" target="_blank">
+                <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/instagram_logo_icon_168715.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/contactoscomunicacionesubate?mibextid=ZbWKwL" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+            </a>
+            <a href="https://www.tiktok.com/@contactoscomunicaciones" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/829/574/png-transparent-tiktok-hd-logo-thumbnail.png" alt="Facebook">
+            </a>
         </div>
         <p>&copy; 2024 Contactos Comunicaciones</p>
     </footer>
     <script src="Scripts/Index.js"></script>
-
+    <script src="Scripts/scroll.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script src="Scripts/banner.js"> </script>
-    <script src="Scripts/Carrusel.js"> </script>
+    <script type="module" src="Scripts/banner.js"></script>
+    <script type="module" src="Scripts/Carrusel.js"></script>
 </body>
-
 </html>
