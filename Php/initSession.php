@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     die();
 }
 else{
-    echo json_encode(["message" => "Bienvenido, " . $_SESSION['user_name'],"link"=>"createNew.html"]);
+    echo json_encode(["message" => "Bienvenido, " . $_SESSION['user_email'],"link"=>"createNew.html"]);
 
 
 }

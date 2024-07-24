@@ -41,11 +41,11 @@ imageInput.addEventListener('change', function () {
       const fileReader = new FileReader();
       fileReader.onload = function (e) {
         const dataURL = e.target.result; // Data URL representing the image content
-        if (selectedFile.size > 2097152) {
+       /* if (selectedFile.size > 2097152) {
           alert('Image size exceeds the maximum limit of 2MB. Please select a smaller file.');
           imageInput.value = ''; // Clear the file selection
           return;
-        }
+        }*/
         // Display image preview
         imagePreview.src = dataURL;
 
@@ -70,8 +70,7 @@ async function crearNoticia(event, uid) {
   const selectedFile = imageInput.files[0];
 
   //******************************* 
-  var linkImage = "/users/" + uid + "/uploads/"+selectedFile.name;
-
+ 
   var formData = new FormData();
   formData.append('fileToUpload', selectedFile);
 
@@ -87,11 +86,6 @@ console.log(formData);
   try {
     const currentDateTimeString = new Date();
     const link=ajax2Image(formData,titulo,cuerpo,currentDateTimeString);
-
-
-
-   
-
 
     alert("Noticia creada y publicada");
   } catch (e) {
