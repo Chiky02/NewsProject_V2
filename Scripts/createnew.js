@@ -1,24 +1,24 @@
 import { enviarDatos } from './ajaxConnection.js';
 
 
-window.onload= enviarDatos(
+window.onload = enviarDatos(
   'Php/initSession.php', // URL del archivo PHP
   'POST', // Tipo de petición
-  { }, // Datos a enviar
-  function(response) { // Función de éxito
-      if (response.message === 'no hay inciooo') {
-          
-          // Redirigir después del login
-          window.location.href = response.link;
+  {}, // Datos a enviar
+  function (response) { // Función de éxito
+    if (response.message === 'no hay inciooo') {
 
-      } else {
-          alert('redireccion'+response.message);
-         // window.location.href=response.link;
-         alert("nada");
-      }
+      // Redirigir después del login
+      window.location.href = response.link;
+
+    } else {
+      alert('redireccion' + response.message);
+      // window.location.href=response.link;
+      alert("nada");
+    }
   },
-  function(jqXHR, textStatus, errorThrown) { // Función de error
-      console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+  function (jqXHR, textStatus, errorThrown) { // Función de error
+    console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
   }
 );
 //addDoc,collection 
@@ -41,11 +41,11 @@ imageInput.addEventListener('change', function () {
       const fileReader = new FileReader();
       fileReader.onload = function (e) {
         const dataURL = e.target.result; // Data URL representing the image content
-       /* if (selectedFile.size > 2097152) {
-          alert('Image size exceeds the maximum limit of 2MB. Please select a smaller file.');
-          imageInput.value = ''; // Clear the file selection
-          return;
-        }*/
+        /* if (selectedFile.size > 2097152) {
+           alert('Image size exceeds the maximum limit of 2MB. Please select a smaller file.');
+           imageInput.value = ''; // Clear the file selection
+           return;
+         }*/
         // Display image preview
         imagePreview.src = dataURL;
 
@@ -53,7 +53,7 @@ imageInput.addEventListener('change', function () {
 
       };
       fileReader.readAsDataURL(selectedFile);
-    } 
+    }
   }
   else {
     alert('Please select an image file');
@@ -70,13 +70,13 @@ async function crearNoticia(event, uid) {
   const selectedFile = imageInput.files[0];
 
   //******************************* 
- 
+
   var formData = new FormData();
   formData.append('fileToUpload', selectedFile);
 
 
-console.log(formData);
-//************************************************** */
+  console.log(formData);
+  //************************************************** */
   if (titulo === '' || imagen === null || cuerpo === '') {
     alert('Todos los campos son obligatorios.');
     return;
@@ -85,7 +85,7 @@ console.log(formData);
   // Aquí se debería subir la imagen y la noticia al servidor
   try {
     const currentDateTimeString = new Date();
-    const link=ajax2Image(formData,titulo,cuerpo,currentDateTimeString);
+    const link = ajax2Image(formData, titulo, cuerpo, currentDateTimeString);
 
     alert("Noticia creada y publicada");
   } catch (e) {
@@ -93,8 +93,8 @@ console.log(formData);
   }
   // (se omite por simplicidad)
   alert('Noticia creada correctamente.');
- // formularioNoticia.reset(); // Limpiar el formulario
- location.reload(true);
+  // formularioNoticia.reset(); // Limpiar el formulario
+  location.reload(true);
 };
 
 
@@ -142,7 +142,7 @@ function ajax(data) {
             }*/
   });
 }
-function ajax2Image(data2,titulo,cuerpo,currentDateTimeString) {
+function ajax2Image(data2, titulo, cuerpo, currentDateTimeString) {
 
   alert(data2);
   $.ajax({
@@ -154,7 +154,7 @@ function ajax2Image(data2,titulo,cuerpo,currentDateTimeString) {
     type: 'POST',
     processData: false,
     // el tipo de información que se espera de respuesta
-    contentType:false,
+    contentType: false,
     cache: false,
     // código a ejecutar si la petición es satisfactoria;
 
@@ -171,19 +171,19 @@ function ajax2Image(data2,titulo,cuerpo,currentDateTimeString) {
 
       else {
         //alert(json);
-      
+
         let data = {
           date: currentDateTimeString,
           body: cuerpo,
           stateNew: "Solicitado",
           title: titulo,
-          user: 1,
+         
           categoryId: 1,
           photoLink: json
         }
         //estados-- solicitado, aprobado, solicitado
         ajax(data)
-    
+
       }
     },
     // código a ejecutar si la petición falla;

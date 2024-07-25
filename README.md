@@ -6,3 +6,4 @@
 6.Una cuenta no debe subir dos imagenes diferentes con el mismo nombre, de lo contrario la imagèn se remplazarà por la ùltima subida
 se tendrà en cuenta esta ultima condición para realizar cambios
 "# NewsProject_V2" 
+7. debo arreglar que se revise si el correo si existe

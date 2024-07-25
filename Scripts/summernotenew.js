@@ -1,3 +1,29 @@
+import { enviarDatos } from './ajaxConnection.js';
+
+
+window.onload = enviarDatos(
+    'Php/initSession.php', // URL del archivo PHP
+    'POST', // Tipo de petición
+    {}, // Datos a enviar
+    function (response) { // Función de éxito
+        if (response.message === 'no hay inciooo') {
+
+            // Redirigir después del login
+            window.location.href = response.link;
+
+        } else {
+            alert('redireccion' + response.message);
+            // window.location.href=response.link;
+            // alert("nada");
+        }
+    },
+    function (jqXHR, textStatus, errorThrown) { // Función de error
+        console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+    }
+);
+
+
+
 $(document).ready(function () {
     $('#cuerpo').summernote({
         placeholder: 'Escribe aquí...',
@@ -23,6 +49,8 @@ form.addEventListener("submit", async (event) => {
     //console.log(textarea.value); //extraemos info del menu
     if (textarea.value != "") {
         alert("tenemos una noticia acá");
+        let title = document.getElementById("titulo");
+     
         try {
             let response = await fetch('Php/createHtml.php', {
                 method: 'POST',
@@ -30,15 +58,17 @@ form.addEventListener("submit", async (event) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    contenido: textarea.value
+                    contenido: textarea.value,
+                    title: title.value,
+                    categoryId: 1
                 })
             });
 
             if (response.success) {
-                let result =  response.success;
+                let result = response.success;
                 alert(result);
             } else {
-                console.error('Error en la respuesta:', response.statusText);
+                console.error('Error en la respuesta:', response.text());
             }
         } catch (error) {
             console.error('Error en la solicitud:', error);

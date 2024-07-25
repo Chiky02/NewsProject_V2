@@ -5,9 +5,9 @@ session_start(); // Iniciar la sesión
 
 
 
-$con=conect();
+$con = conect();
 
-if($con){
+if ($con) {
     $data = json_decode(file_get_contents("php://input"), true);
     if (isset($data['correo']) && isset($data['contrasena'])) {
         $email = $con->real_escape_string($data['correo']);
@@ -16,29 +16,27 @@ if($con){
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $stmt->bind_result($idUser, $userName, $hashedPassword, $rol, $state);
-        $stmt->fetch();
+     
         //stm para verificar si hay correo ue coincida
+        if(!$stmt->fetch()){
+            echo json_encode(["message" => 'Esta correo no está asociado a ninguna cuenta']);
+           
+        }
+        else if ($hashedPassword && password_verify($pass, $hashedPassword)) {
+            //Datos de inicio de sesion
+            $_SESSION['user_id'] = $idUser;
+            $_SESSION['user_name'] = $userName;
+            $_SESSION['user_email'] = $email;
+            $_SESSION['user_rol'] = $rol;
+            $_SESSION['user_state'] = $state;
+            echo json_encode(["message" => 'Contrasena correcta', "url" => "CreateNew.html"]);
+        } else {
+            echo json_encode(["message" => 'Contrasena incorrecta']);
+        }
 
-    if ($hashedPassword && password_verify($pass, $hashedPassword)) {
-        //Datos de inicio de sesion
-        $_SESSION['user_id'] = $idUser;
-        $_SESSION['user_name'] = $userName;
-        $_SESSION['user_email'] = $email;
-        $_SESSION['user_rol'] = $rol;
-        $_SESSION['user_state'] = $state;
-        echo json_encode(["message" => 'Contrasena correcta',"url"=> "CreateNew.html"]);
-    } else {
-        echo json_encode(["message" => 'Contrasena incorrecta']);
+        $stmt->close();
+        $con->close();
     }
-        
-          $stmt->close();
-          $con->close();
-    
-    
-    }
-
-}
-else{
+} else {
     echo json_encode(["message" => 'Sin encontrar']);
 }
-?>

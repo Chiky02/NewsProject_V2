@@ -23,13 +23,26 @@ idCategory INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 );
 CREATE TABLE News (
     idNews INT NOT NULL PRIMARY KEY  AUTO_INCREMENT,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     body TEXT NOT NULL,
     stateNew VARCHAR(45) NOT NULL,
     title VARCHAR(255) NOT NULL,
     userId INT NOT NULL,
     categoryId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES Users(idUser),
+    FOREIGN KEY (categoryId ) REFERENCES Category(idCategory)
+);
+CREATE TABLE NewsV2 (
+    idNews INT NOT NULL  PRIMARY KEY AUTO_INCREMENT,
+    linkNew VARCHAR(255),
+    title VARCHAR(255) NOT NULL,
+    dateUpload  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    dateAcepted DATETIME,
+    stateNew VARCHAR(45) NOT NULL,
+    userId INT NOT NULL,
+    feedback TEXT,
+    categoryId INT NOT NULL,
+   FOREIGN KEY (userId) REFERENCES Users(idUser),
     FOREIGN KEY (categoryId ) REFERENCES Category(idCategory)
 );
 
