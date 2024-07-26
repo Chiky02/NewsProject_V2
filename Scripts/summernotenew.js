@@ -60,18 +60,19 @@ form.addEventListener("submit", async (event) => {
                 body: JSON.stringify({
                     contenido: textarea.value,
                     title: title.value,
-                    categoryId: 1
+                    categoryId: 1,
+                    stateNew:"Solicitado"
                 })
-            });
-
+            }).then(response => response.json());
+           
             if (response.success) {
-                let result = response.success;
+                let result = response.message;
                 alert(result);
             } else {
-                console.error('Error en la respuesta:', response.text());
+                console.log('Error en la respuesta:', response.message);
             }
         } catch (error) {
-            console.error('Error en la solicitud:', error);
+            console.log('Error en la solicitud:', error);
         }
     }
     else {
