@@ -69,10 +69,7 @@ onload = function ajax() {
             }
         },
 
-
         // código a ejecutar si la petición falla;
-
-
         error: function (xhr, status) {
             alert("Ha ocurrido un error inesperado");
 

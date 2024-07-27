@@ -68,21 +68,21 @@ function ajax(data) {
         },
         success: function (json) {
 
-           
+
 
             if (json.length == 0) {
                 alert("No se ha podido crear el perfil");
             }
 
             else {
-              alert(json.message);
-              if(json.message=="Datos guardados exitosamente"){
-                window.location.href = "Login.html";
-              }
-              else{
                 alert(json.message);
-              }
-             
+                if (json.message == "Datos guardados exitosamente") {
+                    window.location.href = "Login.html";
+                }
+                else {
+                    alert(json.message);
+                }
+
             }
         },
         // código a ejecutar si la petición falla;
