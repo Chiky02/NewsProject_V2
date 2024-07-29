@@ -27,11 +27,12 @@ onload = async function ajax() {
             ${element.content}
                 <h4>${element.dateUpload}</h4>
             </div>`;
-
+            console.log(element);
             noticiasContainer.innerHTML += noticiaHTML;
 
             
         });
+        
             //aca debemos colocar todo en el html
         } else {
             console.log('Error en la respuesta:', response.message);

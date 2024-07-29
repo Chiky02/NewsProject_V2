@@ -1,6 +1,7 @@
 <?php
 include("conexion.php");
 header('Content-Type: application/json');
+
 $con = conect();
 
 if ($con) {

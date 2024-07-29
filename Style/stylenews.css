@@ -6,12 +6,14 @@ body {
     font-family: 'Poppins';
     background: radial-gradient(circle, rgba(46, 196, 38, 0.794) 0%, rgba(148, 187, 233, 1) 100%);
 }
-
+ .note-video-clip{
+  width: auto;
+}
 header {
   position: relative;
   background-color: #000f109e;
   padding: 5px 10px;
-  background: linear-gradient(291deg, transparent 0.5%, #000000);
+  background:rgba(0, 0, 0, 0.885);
 }
 
 header::after {
@@ -76,6 +78,7 @@ header .menu a:hover {
 header .menu-icon {
     display: none;
     font-size: 30px;
+    color: white;
     cursor: pointer;
 }
 
