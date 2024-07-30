@@ -7,7 +7,8 @@ body {
     background: radial-gradient(circle, rgba(46, 196, 38, 0.794) 0%, rgba(148, 187, 233, 1) 100%);
 }
  .note-video-clip{
-  width: auto;
+  width: 90%;
+  text-align: center;
 }
 header {
   position: relative;
