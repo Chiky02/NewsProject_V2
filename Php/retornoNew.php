@@ -6,7 +6,7 @@ $con = conect();
 
 if ($con) {
     $news = array();
-    $consulta = "SELECT title, dateUpload, linkNew from  newsv2 order by dateUpload DESC ;";
+    $consulta = "SELECT title, dateUpload, linkNew from   newsv2 WHERE stateNew='Aceptada' order by dateUpload DESC  ;";
 
     $result = mysqli_query($con, $consulta);
 

@@ -6,7 +6,7 @@ $con = conect();
 
 if ($con) {
     $news = array();
-    $consulta = "SELECT title, dateUpload, linkNew, userId from  newsv2 where stateNew='Solicitado' order by dateUpload DESC ;";
+    $consulta = "SELECT idNews, title, dateUpload, linkNew, userId from  newsv2 where stateNew='Solicitado' order by dateUpload DESC ;";
 
     $result = mysqli_query($con, $consulta);
 
@@ -33,7 +33,8 @@ if ($con) {
                 'title' => $new['title'],
                 'dateUpload' => $new['dateUpload'],
                 'userId' => $new['userId'],
-                'content' => $content
+                'content' => $content,
+                'idNews' => $new['idNews']
             ];
         }
 
