@@ -20,14 +20,22 @@ $response = array();
 // Verificar si los datos son válidos
 if ($noticiaId && $noticiaEleccion) {
     // Actualizar el estado de la noticia en la base de datos
-    $sql = "UPDATE newsv2 SET stateNew=? WHERE idNews=? ";
+    if($noticiaEleccion=="Aceptada"){
+        $dateAcepted = date('Y-m-d H:i:s');
+    }
+    else{
+        $dateAcepted = null;
+    }
+   // Formato de fecha y hora actual
+
+    $sql = "UPDATE newsv2 SET stateNew=?, dateAcepted=? WHERE idNews=? ";
     $stmt = $con->prepare($sql);
 
     if ($stmt === false) {
         $response['success'] = false;
         $response['error'] = $con->error;
     } else {
-        $stmt->bind_param("si", $noticiaEleccion, $noticiaId);
+        $stmt->bind_param("ssi", $noticiaEleccion,$dateAcepted, $noticiaId);
 
         if ($stmt->execute()) {
             $response['success'] = true;

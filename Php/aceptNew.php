@@ -6,7 +6,9 @@ $con = conect();
 
 if ($con) {
     $news = array();
-    $consulta = "SELECT idNews, title, dateUpload, linkNew, userId from  newsv2 where stateNew='Solicitado' order by dateUpload DESC ;";
+    $consulta = "SELECT idNews, title, dateUpload, 
+    linkNew, userId from  newsv2 where stateNew='Solicitado'
+     order by dateUpload DESC ;";
 
     $result = mysqli_query($con, $consulta);
 
@@ -26,7 +28,7 @@ if ($con) {
             $link = $new['linkNew'];
 
             // Leer el contenido del archivo HTML
-            $content = file_get_contents("../".$link);
+            $content = file_get_contents("../" . $link);
 
             // Agregar el contenido al array $newsContent
             $newsContent[] = [
@@ -39,9 +41,7 @@ if ($con) {
         }
 
         // Devolver el array con la información de los archivos HTML
-        echo json_encode(['success' => true, 'data' => $newsContent ], JSON_PRETTY_PRINT);
-
-   
+        echo json_encode(['success' => true, 'data' => $newsContent], JSON_PRETTY_PRINT);
     } else {
 
 

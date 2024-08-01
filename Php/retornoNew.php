@@ -6,7 +6,7 @@ $con = conect();
 
 if ($con) {
     $news = array();
-    $consulta = "SELECT title, dateUpload, linkNew from   newsv2 WHERE stateNew='Aceptada' order by dateUpload DESC  ;";
+    $consulta = "SELECT title, dateAcepted, linkNew from   newsv2 WHERE stateNew='Aceptada' order by dateAcepted DESC  ;";
 
     $result = mysqli_query($con, $consulta);
 
@@ -31,7 +31,7 @@ if ($con) {
             // Agregar el contenido al array $newsContent
             $newsContent[] = [
                 'title' => $new['title'],
-                'dateUpload' => $new['dateUpload'],
+                'dateAcepted' => $new['dateAcepted'],
                 'content' => $content
             ];
         }

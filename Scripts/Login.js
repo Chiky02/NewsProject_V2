@@ -2,7 +2,7 @@ import { enviarDatos } from './ajaxConnection.js';
 const formularioLogin = document.getElementById('formularioLogin');
 
 window.onload = enviarDatos(
-  'Php/initSession.php', // URL del archivo PHP
+  '../Php/initSession.php', // URL del archivo PHP
   'POST', // Tipo de petición
   {}, // Datos a enviar
   function (response) { // Función de éxito
@@ -37,7 +37,7 @@ formularioLogin.addEventListener('submit', (event) => {
     console.log(data);
     //ajax(data,"Login");
     enviarDatos(
-      'Php/Login.php', // URL del archivo PHP
+      '../Php/Login.php', // URL del archivo PHP
       'POST', // Tipo de petición
       data, // Datos a enviar
       function (json) { // Función de éxito

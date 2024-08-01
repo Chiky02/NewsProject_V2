@@ -2,7 +2,7 @@ import { enviarDatos } from './ajaxConnection.js';
 
 
 window.onload = enviarDatos(
-  'Php/initSession.php', // URL del archivo PHP
+  '../Php/initSession.php', // URL del archivo PHP
   'POST', // Tipo de petición
   {}, // Datos a enviar
   function (response) { // Función de éxito
@@ -104,7 +104,7 @@ function ajax(data) {
   alert(data);
   $.ajax({
     // la URL para la petición
-    url: 'Php/CreateNew.php',
+    url: '../Php/CreateNew.php',
     // la información a enviar
     data: JSON.stringify(data),
     // especifica si será una petición POST o GET
@@ -147,7 +147,7 @@ function ajax2Image(data2, titulo, cuerpo, currentDateTimeString) {
   alert(data2);
   $.ajax({
     // la URL para la petición
-    url: 'Php/uploadImage.php',
+    url: '../Php/uploadImage.php',
     // la información a enviar
     data: data2,
     // especifica si será una petición POST o GET

@@ -1,5 +1,22 @@
-
-
+import { enviarDatos } from './ajaxConnection.js';
+window.onload = enviarDatos(
+    '../Php/initSession.php', // URL del archivo PHP
+    'POST', // Tipo de petición
+    {}, // Datos a enviar
+    function (response) { // Función de éxito
+      if (response.message === 'no hay inciooo') {
+        //alert('..');
+        // Redirigir después del login
+        // window.location.href = '/pagina_principal.php';
+      } else {
+        alert('redireccion' + response.message);
+        window.location.href = response.link;
+      }
+    },
+    function (jqXHR, textStatus, errorThrown) { // Función de error
+      console.log('Error en la solicitud: ' + textStatus + ', ' + errorThrown);
+    }
+  );
 formularioRegistro.addEventListener('submit', async (event) => {
     event.preventDefault();
 

@@ -4,7 +4,7 @@ var continer = document.getElementById("noticias");
 onload = async function ajax() {
 
 
-    let response = await fetch('Php/aceptNew.php', {
+    let response = await fetch('../Php/aceptNew.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,15 @@ onload = async function ajax() {
         console.log(result);
 
         const noticiasContainer = document.getElementById('noticias');
-
+        if(result.length==0){
+            const noticiaHTML = `
+            <div class="noticia">
+            <h2>No hay noticias por aprobar</h2>
+         
+            </div>`;
+            noticiasContainer.innerHTML += noticiaHTML;
+        }
+        else{
         result.forEach(element => {
             const noticiaHTML = `
             <div class="noticia">
@@ -32,7 +40,7 @@ onload = async function ajax() {
             console.log(element);
             noticiasContainer.innerHTML += noticiaHTML;
 
-        });
+        });}
         loadButtons();
 
         //aca debemos colocar todo en el html
@@ -71,7 +79,7 @@ for (var i = 0; i < botonesDenegar.length; i++) {
 async function aceptarNoticia(noticiaId,eleccion) {
     alert(eleccion);
     // Realizar la solicitud AJAX para aceptar la noticia
-    fetch('Php/resultAceptNew.php', {
+    fetch('../Php/resultAceptNew.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -2,7 +2,7 @@ import { enviarDatos } from './ajaxConnection.js';
 
 
 window.onload = enviarDatos(
-    'Php/initSession.php', // URL del archivo PHP
+    '../Php/initSession.php', // URL del archivo PHP
     'POST', // Tipo de petición
     {}, // Datos a enviar
     function (response) { // Función de éxito
@@ -52,7 +52,7 @@ form.addEventListener("submit", async (event) => {
         let title = document.getElementById("titulo");
      
         try {
-            let response = await fetch('Php/createHtml.php', {
+            let response = await fetch('../Php/createHtml.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
